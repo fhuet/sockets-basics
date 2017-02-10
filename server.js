@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 var clientInfo = {};
 
 // Sends current user to provided socket
-function sendCurrentUsers (socket) {
+function sendCurrentUsers(socket) {
     var info = clientInfo[socket.id];
     var users = [];
     if (typeof info === 'undefined') {
