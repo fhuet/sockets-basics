@@ -18,12 +18,13 @@ socket.on('message', function(message) {
     var tsMoment = moment.utc(message.timestamp).local().format('h:mm a');
     var $messages = jQuery('.messages');
     var $message = jQuery('<li class="list-group-item"></li>');
+    var centering = ( message.name == name ? 'right' : 'left');
 
     console.log('New message:');
     console.log(message.timestamp, message.text);
     
-    $message.append('<p><strong>' + message.name + '  ' + tsMoment + '</strong></p>');
-    $message.append('<p>' + message.text + '</p>');
+    $message.append('<p class="text-' + centering + '"><strong>' + message.name + '  ' + tsMoment + '</strong></p>');
+    $message.append('<p class="text-' + centering + '">' + message.text + '</p>');
     $messages.append($message);
 
 });
